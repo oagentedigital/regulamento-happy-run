@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Happy RUN 2025 – Saúde em Movimento</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --orange: #ff7a00;
+      --orange-dark: #e45d00;
+      --teal: #00b9b9;
+      --bg-dark: #05070b;
+      --card-bg: #101320;
+      --text-light: #f5f5f5;
+      --text-muted: #c7c7c7;
+      --accent: #ff4f6a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Montserrat", sans-serif;
+      background: radial-gradient(circle at top left, #153b4f 0, #05070b 55%, #020308 100%);
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* HERO */
+    header.hero {
+      position: relative;
+      padding: 24px 8vw 72px;
+      overflow: hidden;
+    }
+
+    header.hero::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(255, 122, 0, .35), transparent 55%),
+        radial-gradient(circle at 80% 0%, rgba(0, 185, 185, .3), transparent 55%),
+        radial-gradient(circle at 90% 80%, rgba(255, 79, 106, .3), transparent 60%);
+      opacity: .9;
+      z-index: -1;
+    }
+
+    .hero-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 2fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-logo img {
+      max-width: 390px;
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 12px 25px rgba(0, 0, 0, 0.6));
+    }
+
+    .hero-text h1 {
+      font-size: clamp(1.9rem, 4vw, 2.5rem);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .hero-text h2 {
+      font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .badge {
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .badge.orange { border-color: rgba(255,122,0,.8); }
+    .badge.teal { border-color: rgba(0,185,185,.8); }
+    .badge.pink { border-color: rgba(255,79,106,.9); }
+
+    .hero-data {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .hero-data-item {
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.8rem;
+    }
+
+    .hero-data-label {
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .hero-data-value {
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      padding: 11px 28px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--orange), var(--accent));
+      border: none;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+      transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 36px rgba(0,0,0,0.6);
+      filter: brightness(1.05);
+    }
+
+    .hero-cta span.note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* MAIN CONTENT */
+    main {
+      flex: 1;
+      padding: 0 8vw 56px;
+    }
+
+    .content {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      margin-bottom: 20px;
+    }
+
+    .section-title h3 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--teal);
+      margin-bottom: 4px;
+    }
+
+    .section-title h2 {
+      font-size: 1.4rem;
+      text-transform: uppercase;
+    }
+
+    .reg-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.2fr);
+      gap: 26px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-logo img { margin: 0 auto; }
+      .hero-data { grid-template-columns: 1fr; }
+      .hero-cta { justify-content: center; }
+      .reg-grid { grid-template-columns: 1fr; }
+      header.hero { padding-top: 32px; }
+    }
+
+    /* NAV PILL BOX */
+    .nav-box {
+      padding: 16px 16px 14px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(255,122,0,0.18), rgba(0,185,185,0.14));
+      border: 1px solid rgba(255,255,255,0.12);
+      font-size: 0.8rem;
+    }
+
+    .nav-box p {
+      margin-bottom: 8px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .nav-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .nav-tags a {
+      padding: 6px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      font-size: 0.78rem;
+      background: rgba(0,0,0,0.3);
+    }
+
+    .nav-tags a:hover {
+      border-color: var(--orange);
+    }
+
+    /* REG SECTIONS */
+    .reg-section {
+      margin-bottom: 18px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: var(--card-bg);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .reg-section h4 {
+      font-size: 0.98rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 6px;
+    }
+
+    .reg-section h5 {
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .reg-section p,
+    .reg-section li {
+      font-size: 0.87rem;
+      color: var(--text-light);
+    }
+
+    .reg-section p + p {
+      margin-top: 6px;
+    }
+
+    .reg-section ul {
+      margin: 6px 0 0 18px;
+    }
+
+    .reg-section li {
+      margin-bottom: 4px;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.32), transparent);
+      margin: 26px 0 16px;
+    }
+
+    /* SIDE INFO */
+    .side-info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .side-card {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.12);
+      font-size: 0.84rem;
+    }
+
+    .side-card h6 {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--teal);
+      margin-bottom: 6px;
+    }
+
+    .tag-label {
+      display: inline-flex;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.16);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    footer {
+      padding: 18px 8vw 26px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      background: radial-gradient(circle at top, rgba(255,122,0,0.15), transparent 60%);
+    }
+
+    footer .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-inner span strong {
+      color: var(--orange);
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-logo">
+        <!-- Coloque o arquivo HAPPY RUN.png na mesma pasta deste HTML -->
+        <img src="HAPPY RUN.png" alt="Logo Happy RUN - Saúde em Movimento">
+      </div>
+      <div class="hero-text">
+        <h1>Corrida Happy RUN 2025</h1>
+        <h2>Regulamento Oficial – Saúde em Movimento</h2>
+
+        <div class="hero-badges">
+          <span class="badge orange">Corrida de Rua</span>
+          <span class="badge teal">Surubim – PE</span>
+          <span class="badge pink">5 km &amp; 10 km</span>
+        </div>
+
+        <div class="hero-data">
+          <div class="hero-data-item">
+            <div class="hero-data-label">Data</div>
+            <div class="hero-data-value">30 de novembro de 2025</div>
+          </div>
+          <div class="hero-data-item">
+            <div class="hero-data-label">Horário</div>
+            <div class="hero-data-value">05h00 – Largada</div>
+          </div>
+          <div class="hero-data-item">
+            <div class="hero-data-label">Local</div>
+            <div class="hero-data-value">Largada em frente à Farmapio</div>
+          </div>
+        </div>
+
+        <div class="hero-cta">
+          <button class="btn-primary" onclick="document.getElementById('regulamento').scrollIntoView({behavior:'smooth'})">
+            Ver Regulamento Completo
+          </button>
+          <span class="note">Organização: Farmapio &amp; Soft Academia</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <div class="content" id="regulamento">
+
+      <div class="section-title">
+        <h3>Documento Oficial</h3>
+        <h2>Regulamento da Corrida Happy RUN 2025</h2>
+      </div>
+
+      <div class="reg-grid">
+        <div>
+          <div class="nav-box">
+            <p>Acesse rapidamente cada parte do regulamento:</p>
+            <div class="nav-tags">
+              <a href="#sec1">Finalidade</a>
+              <a href="#sec2">Percursos</a>
+              <a href="#sec3">Inscrições</a>
+              <a href="#sec4">Kit Atleta</a>
+              <a href="#sec5">Largada</a>
+              <a href="#sec6">Regras</a>
+              <a href="#sec7">Hidratação</a>
+              <a href="#sec8">Cronometragem</a>
+              <a href="#sec9">Premiação</a>
+              <a href="#sec10">Segurança</a>
+              <a href="#sec11">Imagem</a>
+              <a href="#sec12">Finais</a>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- 1 -->
+          <section id="sec1" class="reg-section">
+            <h4>1. Finalidade e Organização</h4>
+            <h5>1.1 – 1.2</h5>
+            <p>1.1. A Corrida Happy Run é um evento esportivo organizado pela Farmapio e Soft academia com objetivo de comemorar os aniversários das duas empresas e promover saúde, bem-estar e integração entre atletas e comunidade.</p>
+            <p>1.2. O presente regulamento estabelece as normas gerais de participação, segurança e estrutura do evento.</p>
+          </section>
+
+          <!-- 2 -->
+          <section id="sec2" class="reg-section">
+            <h4>2. Percursos e Categorias</h4>
+            <h5>2.1 – 2.2</h5>
+            <p>2.1. A corrida será disputada nas distâncias:</p>
+            <ul>
+              <li>5 km</li>
+              <li>10 km</li>
+            </ul>
+            <p>2.2. Categorias:</p>
+            <ul>
+              <li>Masculino Geral</li>
+              <li>Feminino Geral</li>
+              <li>Categorias por faixa etária: 16-29 / 30-39 / 40-49 / 50-59 / 60+</li>
+            </ul>
+          </section>
+
+          <!-- 3 -->
+          <section id="sec3" class="reg-section">
+            <h4>3. Inscrições</h4>
+            <h5>3.1 – 3.3</h5>
+            <p>3.1. As inscrições serão realizadas online e/ou presencialmente em pontos oficiais divulgados pela organização.</p>
+            <p>3.2. O valor da inscrição dá direito ao kit atleta (camisa, número de peito, medalha, sacochila e itens definidos pela organização).</p>
+            <p>3.3. Não haverá reembolso da taxa de inscrição após a confirmação da mesma.</p>
+          </section>
+
+          <!-- 4 -->
+          <section id="sec4" class="reg-section">
+            <h4>4. Kit do Atleta</h4>
+            <h5>4.1 – 4.3</h5>
+            <p>4.1. A retirada do kit será divulgada previamente pela organização.</p>
+            <p>4.2. Para retirada é obrigatória apresentação de documento oficial com foto.</p>
+            <p>4.3. O kit é pessoal e intransferível.</p>
+          </section>
+
+          <!-- 5 -->
+          <section id="sec5" class="reg-section">
+			<h4>5. Largada e Chegada</h4>
+			<h5>5.1 – 5.4</h5>
+
+			<p><strong>5.1.</strong> O horário de concentração será às <strong>05h00</strong> em frente à Farmapio.</p>
+			<p><strong>5.2.</strong> A largada oficial será às <strong>06h00</strong> no mesmo local.</p>
+			<p><strong>5.3.</strong> A chegada também acontecerá em frente à Farmapio.</p>
+			<p><strong>5.4.</strong> A organização poderá alterar horário ou percurso por questões de segurança.</p>
+		</section>
+
+
+          <!-- 6 -->
+          <section id="sec6" class="reg-section">
+            <h4>6. Regras de Participação</h4>
+            <h5>6.1 – 6.3</h5>
+            <p>6.1. É obrigatório o uso do número de peito durante toda a prova.</p>
+            <p>6.2. É proibido:</p>
+            <ul>
+              <li>Correr sem cadastro ou sem número identificador;</li>
+              <li>Realizar pacing irregular ou ajuda externa;</li>
+              <li>Utilizar bicicletas, patins ou animais durante a prova (exceto projetos autorizados).</li>
+            </ul>
+            <p>6.3. Atletas menores de 18 anos só participam com autorização dos responsáveis.</p>
+          </section>
+
+          <!-- 7 -->
+          <section id="sec7" class="reg-section">
+            <h4>7. Hidratação e Saúde</h4>
+            <h5>7.1 – 7.3</h5>
+            <p>7.1. O evento disponibilizará postos de hidratação ao longo do percurso.</p>
+            <p>7.2. O participante declara estar apto fisicamente para participar da corrida.</p>
+            <p>7.3. A organização não se responsabiliza por problemas de saúde decorrentes do esforço físico.</p>
+          </section>
+
+          <!-- 8 -->
+          <section id="sec8" class="reg-section">
+            <h4>8. Cronometragem e Resultados</h4>
+            <h5>8.1 – 8.3</h5>
+            <p>8.1. A prova poderá contar com cronometragem eletrônica.</p>
+            <p>8.2. Os resultados serão divulgados após o término da prova.</p>
+            <p>8.3. Em caso de dúvidas nos resultados, o atleta terá 48h para solicitar revisão.</p>
+          </section>
+
+          <!-- 9 -->
+          <section id="sec9" class="reg-section">
+			<h4>9. Premiação</h4>
+			<h5>9.1 – 9.3</h5>
+
+			<p><strong>Premiação Geral – 10 km</strong></p>
+			<ul>
+				<li>1º lugar: <strong>R$ 500</strong> + troféu</li>
+				<li>2º lugar: <strong>R$ 350</strong> + troféu</li>
+				<li>3º lugar: <strong>R$ 250</strong> + troféu</li>
+			</ul>
+
+			<p><strong>Premiação Geral – 5 km</strong></p>
+			<ul>
+				<li>1º lugar: <strong>R$ 300</strong> + troféu</li>
+				<li>2º lugar: <strong>R$ 200</strong> + troféu</li>
+				<li>3º lugar: <strong>R$ 100</strong> + troféu</li>
+			</ul>
+
+			<p><strong>Categorias Etárias (16-29 / 30-39 / 40-49 / 50-59 / 60+)</strong></p>
+			<ul>
+				<li>Troféu para os vencedores de cada faixa etária (masculino e feminino)</li>
+			</ul>
+
+			<p><strong>Medalhas</strong></p>
+			<p>Todos os participantes que concluírem a prova receberão medalha finisher.</p>
+
+			<p><strong>Observação:</strong> Outras premiações poderão ser adicionadas pela organização.</p>
+			</section>
+
+
+          <!-- 10 -->
+          <section id="sec10" class="reg-section">
+            <h4>10. Segurança e Apoio</h4>
+            <h5>10.1 – 10.2</h5>
+            <p>10.1. O trânsito será monitorado com apoio dos motociclistas, voluntários e autoridades locais.</p>
+            <p>10.2. Ambulância e equipe de primeiros socorros estarão disponíveis.</p>
+          </section>
+
+          <!-- 11 -->
+          <section id="sec11" class="reg-section">
+            <h4>11. Direitos de Imagem</h4>
+            <h5>11.1</h5>
+            <p>11.1. Os participantes autorizam o uso de sua imagem para fins de divulgação do evento, sem ônus.</p>
+          </section>
+
+          <!-- 12 -->
+          <section id="sec12" class="reg-section">
+            <h4>12. Disposições Finais</h4>
+            <h5>12.1 – 12.2</h5>
+            <p>12.1. A organização poderá suspender ou adiar a prova em casos de força maior.</p>
+            <p>12.2. Casos omissos serão analisados pela coordenação da Happy Run.</p>
+          </section>
+        </div>
+
+        <!-- SIDE INFO -->
+        <aside class="side-info">
+          <div class="side-card">
+            <span class="tag-label">Informações Gerais</span>
+            <h6>Local &amp; Cidade</h6>
+            <p><strong>Surubim – PE</strong><br>
+              Largada e chegada em frente à Farmapio.</p>
+          </div>
+
+          <div class="side-card">
+            <h6>Percursos</h6>
+            <p>Dois percursos oficiais:</p>
+            <ul>
+              <li>Corrida 5 km</li>
+              <li>Corrida 10 km</li>
+            </ul>
+            <p>Categorias geral masculino, geral feminino e faixas etárias.</p>
+          </div>
+
+          <div class="side-card">
+            <h6>Kit do Atleta</h6>
+            <p>Camisa oficial, número de peito, medalha, sacochila e itens definidos pela organização.</p>
+          </div>
+
+          <div class="side-card">
+            <h6>Importante</h6>
+            <p>Use o número de peito durante toda a prova e chegue com antecedência.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>Corrida <strong>Happy RUN 2025</strong> – Saúde em Movimento.</span>
+      <span>Organização: Farmapio &amp; Soft Academia.</span>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
